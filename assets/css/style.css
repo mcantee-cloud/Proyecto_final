@@ -1,3 +1,4 @@
+/* ===== Reset básico ===== */
 * {
     margin: 0;
     padding: 0;
@@ -5,121 +6,114 @@
     font-family: 'Arial', sans-serif;
 }
 
+/* ===== Body y colores ===== */
 body {
-    background-color: #111;
-    color: #eee;
+    background-color: #121212;
+    color: #fff;
     line-height: 1.6;
     scroll-behavior: smooth;
 }
 
+/* ===== Enlaces ===== */
 a {
     text-decoration: none;
-    color: #00c0ff;
-    transition: all 0.3s ease;
+    color: #ff66ff;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #ff66ff;
+    color: #66ccff;
 }
 
+/* ===== Botones ===== */
 button, .btn {
-    background-color: #00c0ff;
+    background: linear-gradient(135deg, #66ccff, #ff66ff, #ff66cc);
     color: #fff;
     border: none;
-    padding: 14px 30px;
-    border-radius: 15px;
+    padding: 12px 25px;
+    border-radius: 12px;
     cursor: pointer;
     font-weight: bold;
-    transition: all 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
 }
 
 button:hover, .btn:hover {
-    background-color: #ff66ff;
-    transform: scale(1.08);
-    box-shadow: 0 10px 35px rgba(0,0,0,0.7);
+    transform: scale(1.05);
+    filter: brightness(1.2);
 }
 
+/* ===== Navbar ===== */
 nav {
     width: 100%;
-    padding: 20px 0;
-    background: linear-gradient(90deg, #00c0ff, #ff66ff, #ff3366);
+    padding: 15px 20px;
+    background: linear-gradient(90deg, #66ccff, #ff66ff);
     position: fixed;
     top:0;
     left:0;
     z-index: 1000;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 nav ul {
-    list-style: none;
     display: flex;
-    gap: 30px;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 5px 10px;
 }
 
 nav a {
-    color: #fff;
     font-weight: bold;
-    text-transform: uppercase;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    color: #fff;
+    font-size: 1rem;
 }
 
-nav a:hover {
-    background-color: rgba(255,255,255,0.2);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
-
+/* ===== Hero Sections ===== */
 .inicio-hero, .tequila-hero, .capturando-hero {
-    height: 150vh;
-    width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
     text-align: center;
     position: relative;
     overflow: hidden;
     background-repeat: no-repeat;
-    background-size: auto 220%;
-    background-position: center;
+    background-size: cover;
+    background-position: center 50%;
     scroll-margin-top: 80px;
-    animation: fadeIn 1.5s ease;
-    background-attachment: fixed;
-    color: #fff;
-    border-radius: 20px;
-    box-shadow: 0 15px 50px rgba(0,0,0,0.7);
 }
 
 .inicio-hero {
-    background-image: url("../img/iniciofondo.jpg");
-}
-.tequila-hero {
-    background-image: url("../img/tequilafondo.jpg");
-}
-.capturando-hero {
-    background-image: url("../img/logocap.png");
+    background-image: url("../assets/img/inicio.jpg");
 }
 
+.tequila-hero {
+    background-image: url("../assets/img/tequila.jpg");
+}
+
+.capturando-hero {
+    background-image: url("../assets/img/capturando.jpg");
+}
+
+/* Overlay oscuro y desenfoque */
 .inicio-hero::before, .tequila-hero::before, .capturando-hero::before {
     content: '';
     position: absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.5));
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
     z-index:1;
-    border-radius: 20px;
-    transition: all 0.5s ease;
 }
 
-.inicio-hero:hover::before, .tequila-hero:hover::before, .capturando-hero:hover::before {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.35));
-}
-
+/* Contenido centrado */
 .hero-content {
     position: relative;
     z-index: 2;
@@ -127,29 +121,7 @@ nav a:hover {
     animation: fadeInUp 1.2s ease forwards;
 }
 
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
-    background: linear-gradient(90deg, #00c0ff, #ff66ff, #ff3366);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 20px auto;
-    text-shadow: 1px 1px 8px rgba(0,0,0,0.5);
-}
-
-.hero-content .btn {
-    font-size: 1.1rem;
-    padding: 12px 30px;
-    border-radius: 20px;
-    box-shadow: 0 6px 30px rgba(0,0,0,0.6);
-}
-
+/* ===== Animaciones ===== */
 @keyframes fadeInUp {
     0% { opacity: 0; transform: translateY(30px); }
     100% { opacity: 1; transform: translateY(0); }
@@ -160,81 +132,101 @@ nav a:hover {
     100% { opacity: 1; }
 }
 
-@keyframes zoomPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
+/* ===== Secciones generales ===== */
+section {
+    padding: 100px 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
 }
-
-.inicio-hero { animation: zoomPulse 20s ease-in-out infinite alternate; }
-.tequila-hero { animation: zoomPulse 22s ease-in-out infinite alternate; }
-.capturando-hero { animation: zoomPulse 24s ease-in-out infinite alternate; }
-
-section { padding: 100px 20px; }
 
 h1, h2, h3 {
-    color: #00c0ff;
-    margin-bottom: 25px;
+    color: #ff66ff;
+    margin-bottom: 20px;
     text-transform: uppercase;
+    font-size: 2rem;
 }
 
-p { margin-bottom: 25px; }
+p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
 
+/* ===== Cards y contenedores ===== */
 .card {
-    background: linear-gradient(145deg, #111, #222);
+    background: linear-gradient(135deg, #66ccff, #ff66ff);
+    color: #fff;
     border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.6);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 15px;
+    text-align: center;
 }
 
 .card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 18px 45px rgba(0,0,0,0.8);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 
-.container {
-    width: 90%;
-    max-width: 1300px;
-    margin: 0 auto;
-}
-
+/* ===== Footer ===== */
 footer {
-    background: linear-gradient(90deg, #00c0ff, #ff66ff, #ff3366);
+    background: #111;
     color: #fff;
     text-align: center;
     padding: 40px 20px;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    border-radius: 15px;
+    font-size: 0.9rem;
 }
 
 footer a {
-    color: #fff;
-    font-weight: bold;
-    transition: all 0.3s ease;
+    color: #ff66ff;
 }
 
-footer a:hover { color: #ffccff; }
+footer a:hover {
+    color: #66ccff;
+}
+
+/* ===== Media queries ===== */
+@media (max-width: 1024px) {
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    p { font-size: 1rem; }
+    .card { padding: 20px; }
+    nav a { font-size: 0.9rem; }
+}
 
 @media (max-width: 768px) {
-    .inicio-hero, .tequila-hero, .capturando-hero {
-        height: 90vh;
-        background-position: center top;
-        background-size: cover;
-        background-attachment: scroll;
+    nav {
+        flex-direction: column;
     }
 
-    nav { flex-direction: column; }
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
 
-    .hero-content h1 { font-size: 2rem; }
-    .hero-content p { font-size: 1rem; }
-    .hero-content .btn { padding: 12px 25px; font-size: 1rem; }
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .inicio-hero, .tequila-hero, .capturando-hero {
+        height: 80vh;
+        background-size: 120% auto;
+        background-position: center 40%;
+    }
+
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.3rem; }
+    p { font-size: 0.95rem; }
+    .btn { padding: 10px 20px; font-size: 0.95rem; }
+    .card { margin: 10px; }
 }
 
-.inicio-hero { --primary-color: #00c0ff; }
-.tequila-hero { --primary-color: #ff66ff; }
-.capturando-hero { --primary-color: #ff3366; }
-
-.btn { background-color: var(--primary-color); }
-.btn:hover { filter: brightness(1.25); }
+@media (max-width: 480px) {
+    h1 { font-size: 1.2rem; }
+    h2 { font-size: 1.1rem; }
+    p { font-size: 0.9rem; }
+    .btn { padding: 8px 16px; font-size: 0.9rem; }
+    .card { padding: 15px; font-size: 0.9rem; }
+    section { padding: 60px 15px; }
+}
